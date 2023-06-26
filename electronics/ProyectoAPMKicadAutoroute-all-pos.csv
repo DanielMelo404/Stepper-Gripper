@@ -1,0 +1,16 @@
+Ref,Val,Package,PosX,PosY,Rot,Side
+"C1","100u","CP_Axial_L10.0mm_D6.0mm_P15.00mm_Horizontal",90.830400,-124.002800,0.000000,top
+"De1","LED","LED_D3.0mm_Clear",112.900000,-76.975000,90.000000,top
+"De2","LED","LED_D3.0mm_Clear",97.400000,-76.775000,90.000000,top
+"J1","Conn_01x15_Socket","PinSocket_1x15_P2.54mm_Vertical",129.260000,-110.800000,-90.000000,top
+"J2","Conn_01x15_Socket","PinSocket_1x15_P2.54mm_Vertical",129.260000,-85.420000,-90.000000,top
+"J3","Conn_01x08_Socket","PinSocket_1x08_P2.54mm_Vertical",114.300000,-117.125000,0.000000,top
+"J4","Conn_01x08_Socket","PinSocket_1x08_P2.54mm_Vertical",127.000000,-117.125000,0.000000,top
+"J5","Screw_Terminal_01x02","TerminalBlock_Altech_AK300-2_P5.00mm",114.300000,-152.400000,180.000000,top
+"J6","Screw_Terminal_01x02","TerminalBlock_Altech_AK300-2_P5.00mm",126.620000,-152.400000,180.000000,top
+"J7","Screw_Terminal_01x02","TerminalBlock_Altech_AK300-2_P5.00mm",98.348800,-152.552400,180.000000,top
+"J8","PicKit","PinHeader_1x05_P2.54mm_Vertical",129.660000,-77.088800,-90.000000,top
+"J9","PicKit","PinHeader_1x01_P2.54mm_Vertical",133.300000,-116.800000,0.000000,top
+"R1","330","R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal",113.010000,-80.650000,180.000000,top
+"R2","330","R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal",102.210000,-79.300000,180.000000,top
+"U1","LM7805_TO220","TO-220-3_Horizontal_TabDown",90.000000,-135.000000,-90.000000,top
