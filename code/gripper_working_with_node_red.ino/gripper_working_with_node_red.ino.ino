@@ -24,9 +24,9 @@
 #define BUILTIN_LED 2
 
 
-const int dirPin = 4;
-const int stepPin = 16;
-const int en = 3;
+const int dirPin = 1;
+const int stepPin = 3;
+//const int en = 3;
 const int ms1 = 21;
 const int ms2 = 19;
 const int ms3 = 18;
@@ -35,7 +35,7 @@ const int sleepPin = 17;
 
 
 void setupPins(){
-  digitalWrite(en, LOW);
+//  digitalWrite(en, LOW);
   digitalWrite(ms1, LOW);
   digitalWrite(ms2, LOW);
   digitalWrite(ms3, LOW);
@@ -54,9 +54,8 @@ AccelStepper myStepper(motorInterfaceType, stepPin, dirPin);
 
 // Update these with values suitable for your network.
 
-const char* ssid = "999100987147";
-const char* password = "531779498090";
-
+const char* ssid = "wifiName";
+const char* password = "wifiPassword";
 
 const char* mqtt_server = "broker.hivemq.com";
 
@@ -79,15 +78,15 @@ void setup_wifi() {
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
-    Serial.print(".");
+//    Serial.print(".");
   }
 
   randomSeed(micros());
 
-  Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
+//  Serial.println("");
+//  Serial.println("WiFi connected");
+//  Serial.println("IP address: ");
+//  Serial.println(WiFi.localIP());
 }
 
 void callback(char* topic, byte* payload, unsigned int length) {
@@ -104,7 +103,7 @@ char *output;
     long result = strtol(pos, &output, 10) + 1;
 //Serial.println((int)result);
 //  requestedPosition = ((char)payload[0]-'0')*100;
-requestedPosition = (int)result;
+requestedPosition = -1*(int)result;
 
 //  Serial.println("requestedPosition"+(String)requestedPosition);
 //Serial.println((char)payload[0]);
@@ -150,7 +149,7 @@ void reconnect() {
 
 void setup() {
   pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
-  Serial.begin(115200);
+//  Serial.begin(115200);
   setup_wifi();
 
 setupPins();
@@ -159,7 +158,7 @@ setupPins();
 //  myStepper.setAcceleration(20);
 
     myStepper.setMinPulseWidth(55); 
-  Serial.begin(9600);
+//  Serial.begin(9600);
 
 myStepper.setSpeed(500);
 myStepper.moveTo(requestedPosition);
@@ -182,12 +181,12 @@ void loop() {
     }else{
        myStepper.setSpeed(500);
     }
-    Serial.println((String)myStepper.currentPosition());
+//    Serial.println((String)myStepper.currentPosition());
     
   }
   if (myStepper.currentPosition() == requestedPosition){
     myStepper.stop();
-    Serial.print("stop" + (String)myStepper.currentPosition());
+//    Serial.print("stop" + (String)myStepper.currentPosition());
   }
   else{
     myStepper.runSpeed();
