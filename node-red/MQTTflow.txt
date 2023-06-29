@@ -1,0 +1,226 @@
+[
+    {
+        "id": "bee729a4b21752c1",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "38619c576633983a",
+        "type": "mqtt out",
+        "z": "bee729a4b21752c1",
+        "name": "publicador",
+        "topic": "stepperDMAtopic",
+        "qos": "2",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "c82aaafd2b116cc0",
+        "x": 690,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "e787f8f16d6aae7d",
+        "type": "inject",
+        "z": "bee729a4b21752c1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "stepperDMAtopic",
+        "payload": "4",
+        "payloadType": "num",
+        "x": 350,
+        "y": 480,
+        "wires": [
+            [
+                "6393a2f1533a70c1",
+                "b86c50404ed6e12f"
+            ]
+        ]
+    },
+    {
+        "id": "ee1dc8e1f3d857b1",
+        "type": "mqtt in",
+        "z": "bee729a4b21752c1",
+        "name": "receptor",
+        "topic": "outTopicDMA",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "c82aaafd2b116cc0",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 360,
+        "y": 600,
+        "wires": [
+            [
+                "ec00838de72ec5bc"
+            ]
+        ]
+    },
+    {
+        "id": "ec00838de72ec5bc",
+        "type": "debug",
+        "z": "bee729a4b21752c1",
+        "name": "receptor",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "6393a2f1533a70c1",
+        "type": "ui_slider",
+        "z": "bee729a4b21752c1",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "1996a60bfc32cbf7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": "0",
+        "max": "4000",
+        "step": "1",
+        "className": "",
+        "x": 530,
+        "y": 480,
+        "wires": [
+            [
+                "38619c576633983a",
+                "e57152575e6ce98c"
+            ]
+        ]
+    },
+    {
+        "id": "e57152575e6ce98c",
+        "type": "ui_gauge",
+        "z": "bee729a4b21752c1",
+        "name": "",
+        "group": "1996a60bfc32cbf7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "9",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 670,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "b86c50404ed6e12f",
+        "type": "ui_numeric",
+        "z": "bee729a4b21752c1",
+        "name": "",
+        "label": "numeric",
+        "tooltip": "",
+        "group": "1996a60bfc32cbf7",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "1550",
+        "step": 1,
+        "className": "",
+        "x": 520,
+        "y": 540,
+        "wires": [
+            [
+                "38619c576633983a"
+            ]
+        ]
+    },
+    {
+        "id": "c82aaafd2b116cc0",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": " 1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "1996a60bfc32cbf7",
+        "type": "ui_group",
+        "name": "DefGroup",
+        "tab": "c5ef851226fbbb55",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c5ef851226fbbb55",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
